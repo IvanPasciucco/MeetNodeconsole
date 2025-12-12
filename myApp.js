@@ -39,6 +39,11 @@ app.get(
   }
 );
 
+app.get("/:word/echo", function(req, res) {
+  const palabra = req.params.word;
+  
+  res.json({ echo: palabra });
+});
 
 
 

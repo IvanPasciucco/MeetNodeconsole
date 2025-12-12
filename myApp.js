@@ -14,6 +14,8 @@ app.get("/", function(req, res) {
   res.sendFile(rutaAbsoluta);
 });
 
+app.use("/public", express.static(__dirname + "/public"));
+
 
 
 

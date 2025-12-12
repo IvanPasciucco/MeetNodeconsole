@@ -1,16 +1,17 @@
 require('dotenv').config();
 let express = require('express');
-let app = express();
+var app = express();
 
-console.log("Hello World");
+app.use(function(req, res, next) {
+  var logMessage = req.method + " " + req.path + " - " + req.ip;
+  
+  console.log(logMessage);
+  
+  next();
+});
 
-
-// app.get("/", function(req, res) {
-//     res.send("Hello Express");
-//   });
 
 app.get("/", function(req, res) {
-  // __dirname nos da la ruta absoluta de la carpeta en el disco duro
   const rutaAbsoluta = __dirname + "/views/index.html";
   res.sendFile(rutaAbsoluta);
 });

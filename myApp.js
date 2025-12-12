@@ -56,7 +56,13 @@ app.route("/name").get(function(req, res) {
   });
 });
 
-
+app.post("/name", function(req, res) {
+  // body-parser ya desempaquetó los datos del formulario y los puso aquí:
+  var nombre = req.body.first;
+  var apellido = req.body.last;
+  
+  res.json({ name: nombre + " " + apellido });
+});
 
 
 

@@ -46,7 +46,14 @@ app.get("/:word/echo", function(req, res) {
 });
 
 
-
+app.route("/name").get(function(req, res) {
+  var nombre = req.query.first;
+  var apellido = req.query.last;
+  
+  res.json({
+    name: nombre + " " + apellido
+  });
+});
 
 
 
